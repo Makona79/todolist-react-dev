@@ -21,7 +21,6 @@ function TodoList(props: PropsType) {
 		setNewTaskTitle(e.currentTarget.value)
 	}
 	const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-		debugger;
 		if (e.key === 'Enter') {
 			props.addTask(newTaskTitle);
 			setNewTaskTitle('')
