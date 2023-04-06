@@ -34,6 +34,15 @@ function App() {
 		let newTasks = [newTask, ...tasks];
 		setTasks(newTasks);
 	}
+	function changeStatus(taskId: string, isDone: boolean) {
+		let ta = tasks.find(t => t.id === taskId);
+		if (ta) {
+			ta.isDone = isDone;
+		}
+		setTasks([...tasks]);
+
+
+	}
 	function changeFilter(value: FilterValuesType) {
 		setFilter(value);
 	}
@@ -47,14 +56,17 @@ function App() {
 
 	return (
 		<div className="app">
-			<img className='app__image' src="https://i.pinimg.com/originals/ae/a1/e1/aea1e121c836c873ed614b53be21b0e8.png" alt="anime art" width={835} height={520} />
+			{/* <img className='app__image' src="https://i.pinimg.com/originals/ae/a1/e1/aea1e121c836c873ed614b53be21b0e8.png" alt="anime art" width={835} height={520} /> */}
 			<h1 className="title">This is app.</h1>
 			<div className='box'>
 				<TodoList title='What to learn'
 					task={taskForTodoList}
 					removeTask={removeTask}
 					changeFilter={changeFilter}
-					addTask={addTask} />
+					addTask={addTask}
+					changeTaskStatus={changeStatus}
+					filter={filter}
+				/>
 				{/* <TodoList title='Movies' task={task2} /> */}
 				{/* <TodoList title='Songs' /> */}
 			</div>
